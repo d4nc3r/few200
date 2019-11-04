@@ -10,6 +10,7 @@
     <input *ngIf="!item.completed"
            class="btn btn-sm btn-danger ml-2"
            type="button"
-           value="x">
+           value="x"
+           (click)="markComplete(item)">
   </li>
 </ul>
