@@ -1,0 +1,15 @@
+<ul class="list-unstyled">
+  <li *ngFor="let item of items"
+      class="alert"
+      [ngClass]="{
+        'completed': item.completed,
+        'alert-success': item.completed,
+        'alert-info': !item.completed
+      }">
+    <span>{{item.description}}</span>
+    <input *ngIf="!item.completed"
+           class="btn btn-sm btn-danger ml-2"
+           type="button"
+           value="x">
+  </li>
+</ul>

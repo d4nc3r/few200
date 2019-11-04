@@ -7,6 +7,8 @@ import { TipCalculatorComponent } from './components/tip-calculator/tip-calculat
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { TodosComponent } from './components/todos/todos.component';
+import { ListComponent } from './components/todos/list/list.component';
+import { EntryComponent } from './components/todos/entry/entry.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { TodosComponent } from './components/todos/todos.component';
     TipCalculatorComponent,
     HomeComponent,
     NavComponent,
-    TodosComponent
+    TodosComponent,
+    ListComponent,
+    EntryComponent
   ],
   imports: [
     BrowserModule,
