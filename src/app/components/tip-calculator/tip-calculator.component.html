@@ -1,0 +1,27 @@
+<h2>tip calculator goes here</h2>
+<div class="form-group">
+  <label for="amount">Amount</label>
+  <input type="number"
+         class=form-control
+         #amount
+         (keyup)="updateAmount(amount.valueAsNumber)">
+  <div class="btn-group"
+       role="group"
+       aria-label="Basic example">
+    <button class="btn btn-secondary"
+            [disabled]="tipPercent === .10"
+            (click)=changeTipPercent(.10)>10%</button>
+    <button class="btn btn-secondary"
+            [disabled]="tipPercent === .15"
+            (click)=changeTipPercent(.15)>15%</button>
+    <button class="btn btn-secondary"
+            [disabled]="tipPercent === .20"
+            (click)=changeTipPercent(.20)>20%</button>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">Bill Amount: {{ billAmount | currency }}</li>
+    <li class="list-group-item">Tip Percentage: {{ tipPercent | percent }}</li>
+    <li class="list-group-item">Tip Amount: {{ tipAmount | currency }}</li>
+    <li class="list-group-item">Total: {{ total | currency }}</li>
+  </ul>
+</div>
