@@ -3,6 +3,7 @@
     <input type="button"
            (click)="decrement()"
            class="btn btn-primary mr-3"
+           [disabled]="(decrementDisabled$ | async)"
            value="-">
     <span>{{count$ | async}}</span>
     <input type="button"
@@ -13,7 +14,24 @@
       <input type="button"
              (click)="reset()"
              class="btn btn-primary m-2"
+             [disabled]="(count$ | async) === 0"
              value="Reset count">
+    </div>
+    <div class="btn-group"
+         role="group"
+         aria-label="Basic example">
+      <button type="button"
+              class="btn btn-secondary"
+              (click)="setCountBy(1)"
+              [disabled]="(countBy$ | async) === 1">1</button>
+      <button type="button"
+              class="btn btn-secondary"
+              (click)="setCountBy(3)"
+              [disabled]="(countBy$ | async) === 3">3</button>
+      <button type="button"
+              class="btn btn-secondary"
+              (click)="setCountBy(5)"
+              [disabled]="(countBy$ | async) === 5">5</button>
     </div>
   </div>
 </div>
