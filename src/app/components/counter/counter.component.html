@@ -33,5 +33,9 @@
               (click)="setCountBy(5)"
               [disabled]="(countBy$ | async) === 5">5</button>
     </div>
+    <div class="alert-success">
+      <span *ngIf="(fizzBuzz$ | async)?.fizz">Fizz</span>
+      <span *ngIf="(fizzBuzz$ | async)?.buzz">Buzz</span>
+    </div>
   </div>
 </div>

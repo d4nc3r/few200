@@ -29,3 +29,21 @@ export const selectDecrementDisabled = createSelector(
   selectCountBy,
   (current, countBy) => current - countBy < 0
 );
+
+// export const selectShowFizz = createSelector(
+//   selectCurrentCount,
+//   count => count > 0 && count % 3 === 0
+// );
+
+// export const selectShowBuzz = createSelector(
+//   selectCurrentCount,
+//   count => count > 0 && count % 5 === 0
+// );
+
+export const selectFizzBuzz = createSelector(
+  selectCurrentCount,
+  count => ({
+    fizz: count > 0 && count % 3 === 0,
+    buzz: count > 0 && count % 5 === 0
+  })
+);
