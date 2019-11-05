@@ -21,6 +21,10 @@ export function reducer(state: CounterState = initialState, action: Action): Cou
       return {
         current: state.current - 1
       };
+    case 'reset':
+      return {
+        current: 0
+      };
     default:
       return state;
   }
