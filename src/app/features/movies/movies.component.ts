@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieListItem } from './models';
+import { Store } from '@ngrx/store';
+import { MoviesState, selectMovieListItems } from './reducers';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-movies',
@@ -7,15 +10,12 @@ import { MovieListItem } from './models';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
-  movieList: MovieListItem[] = [
-    { id: '1', title: 'Lion King', rentalDays: 3, rentalPrice: 2.99 },
-    { id: '2', title: 'Moana', rentalDays: 3, rentalPrice: 3.99 },
-    { id: '3', title: 'Cinderella', rentalDays: 3, rentalPrice: 5.99 },
-  ];
+  movieList$: Observable<MovieListItem[]>;
 
-  constructor() { }
+  constructor(private store: Store<MoviesState>) { }
 
   ngOnInit() {
+    this.movieList$ = this.store.select(selectMovieListItems);
   }
 
 }

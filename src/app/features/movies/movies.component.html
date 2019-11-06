@@ -2,4 +2,4 @@
   <h3>Our Video Library</h3>
 </header>
 <movies-entry></movies-entry>
-<movies-list [model]="movieList"></movies-list>
+<movies-list [model]="movieList$ | async"></movies-list>
