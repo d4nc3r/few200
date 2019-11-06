@@ -17,6 +17,7 @@ import { reducers } from './reducers';
 import { CounterComponent } from './components/counter/counter.component';
 import { EffectsModule } from '@ngrx/effects';
 import { CounterEffects } from './effects/counter.effects';
+import { MoviesModule } from './features/movies/movies.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CounterEffects } from './effects/counter.effects';
     AppRoutingModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
-    EffectsModule.forRoot([CounterEffects])
+    EffectsModule.forRoot([CounterEffects]),
+    MoviesModule
   ],
   providers: [TodoDataService],
   bootstrap: [AppComponent] // root level module
