@@ -12,4 +12,13 @@ export class BookEntryComponent implements OnInit {
   ngOnInit() {
   }
 
+  addBook(titleEl: HTMLInputElement, authorEl: HTMLInputElement, formatEl: HTMLInputElement) {
+    const newBook = { // missing id (?)
+      title: titleEl.value,
+      author: authorEl.value,
+      format: formatEl.value
+    };
+    console.log(newBook);
+  }
+
 }

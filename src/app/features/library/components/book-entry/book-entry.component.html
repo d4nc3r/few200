@@ -1,1 +1,27 @@
-<p>book-entry works!</p>
+<div class="mb-5">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input #title
+           name="title"
+           class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="author">Author</label>
+    <input #author
+           type="text"
+           name="author"
+           class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="format">Book format</label>
+    <select #format
+            name="format"
+            class="form-control">
+      <option value="hardcover">Hardcover</option>
+      <option value="paperback">Paperback</option>
+      <option value="ebook">E-Book</option>
+    </select>
+  </div>
+  <button class="btn btn-success"
+          (click)="addBook(title, author, format)">Add new book</button>
+</div>
