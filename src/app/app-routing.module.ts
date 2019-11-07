@@ -5,7 +5,7 @@ import { TipCalculatorComponent } from './components/tip-calculator/tip-calculat
 import { TodosComponent } from './components/todos/todos.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { MoviesComponent } from './features/movies/movies.component';
-
+import { LibraryComponent } from './features/library/library.component';
 
 const routes: Routes = [
   {
@@ -32,6 +32,10 @@ const routes: Routes = [
   {
     path: 'movies',
     component: MoviesComponent
+  },
+  {
+    path: 'library',
+    component: LibraryComponent
   },
   {
     path: '**',

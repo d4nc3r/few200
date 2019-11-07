@@ -18,6 +18,7 @@ import { CounterComponent } from './components/counter/counter.component';
 import { EffectsModule } from '@ngrx/effects';
 import { CounterEffects } from './effects/counter.effects';
 import { MoviesModule } from './features/movies/movies.module';
+import { LibraryModule } from './features/library/library.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MoviesModule } from './features/movies/movies.module';
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([CounterEffects]),
-    MoviesModule
+    MoviesModule,
+    LibraryModule
   ],
   providers: [TodoDataService],
   bootstrap: [AppComponent] // root level module
