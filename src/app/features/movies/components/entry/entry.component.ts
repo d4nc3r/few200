@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesState } from '../../reducers';
 import { Store } from '@ngrx/store';
 import { addMovie } from '../../actions/list.actions';
+import { MoviesState } from '../../reducers';
 
 @Component({
   selector: 'movies-entry',
@@ -25,9 +25,7 @@ export class EntryComponent implements OnInit {
       rentalPrice: rentalPriceEl.valueAsNumber,
       rentalDays: +rentalDaysEl.value
     };
-    // TODO: replace w/ a dispatch
     this.store.dispatch(addMovie({ ...itemToAdd }));
-    console.log(itemToAdd);
 
     // Reset the form
     titleEl.value = '';

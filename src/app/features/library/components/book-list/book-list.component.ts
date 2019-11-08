@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { BookEntity } from '../../reducer/books.reducer';
 
 @Component({
   selector: 'lib-book-list',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit {
+  @Input() model: BookEntity[];
 
   constructor() { }
 

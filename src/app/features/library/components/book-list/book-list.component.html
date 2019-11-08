@@ -1,1 +1,7 @@
-<p>book-list works!</p>
+<ul class="list-group">
+  <li class="list-group-item list-group-item-info">
+    <h3>Books:</h3>
+  </li>
+  <li *ngFor="let book of model"
+      class="list-group-item"><strong>{{book.title}}</strong> by {{book.author}} ({{book.format}})</li>
+</ul>
