@@ -33,7 +33,7 @@ export class ListEffects {
     this.actions$.pipe(
       ofType(listActions.addMovie),
       map(action => action.payload),
-      switchMap(origMovie => this.http.post<MovieEntity>('http://localhost:3000/movies', {
+      switchMap(origMovie => this.http.post<MovieEntity>(`${apiUrl}/movies`, {
         title: origMovie.title,
         rentalPrice: origMovie.rentalPrice,
         rentalDays: origMovie.rentalDays
