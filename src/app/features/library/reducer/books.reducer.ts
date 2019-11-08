@@ -15,17 +15,18 @@ export interface State extends EntityState<BookEntity> {
 
 export const adapter = createEntityAdapter<BookEntity>();
 
-// const initialState = adapter.getInitialState();
-const initialState: State = {
-  ids: ['1', '2'],
-  entities: {
-    1: { id: '1', title: 'Lord of the Rings', author: 'Tolkien', format: 'hardcover' },
-    2: { id: '2', title: 'Old Man\'s War', author: 'Scalzi', format: 'audiobook' },
-  }
-};
+const initialState = adapter.getInitialState();
+// const initialState: State = {
+//   ids: ['1', '2'],
+//   entities: {
+//     1: { id: '1', title: 'Lord of the Rings', author: 'Tolkien', format: 'hardcover' },
+//     2: { id: '2', title: 'Old Man\'s War', author: 'Scalzi', format: 'audiobook' },
+//   }
+// };
 
 const reducerFunction = createReducer(
   initialState,
+  on(libraryActions.loadBooksSuccess, (state, action) => adapter.addAll(action.payload, state)),
   on(libraryActions.addBook, (state, action) => adapter.addOne(action.payload, state))
 );
 

@@ -1,11 +1,13 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { of } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import * as appActions from 'src/app/actions/app.actions';
 import * as listActions from '../actions/list.actions';
 import { MovieEntity } from '../reducers/list.reducer';
-import { switchMap, map, tap, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
+
+const apiUrl = 'https://movies-api.7inyd4nc3r.now.sh';
 
 @Injectable()
 export class ListEffects {
@@ -17,7 +19,7 @@ export class ListEffects {
   loadMovies$ = createEffect(() =>
     this.actions$.pipe(
       ofType(appActions.applicationStarted),
-      switchMap(() => this.http.get<GetAllResponse>('http://localhost:3000/movies')
+      switchMap(() => this.http.get<GetAllResponse>(`${apiUrl}/movies`)
         .pipe(
           map(response => response.movies),
           map(movies => listActions.loadMoviesSuccess({ movies })),

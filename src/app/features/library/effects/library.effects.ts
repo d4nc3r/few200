@@ -6,6 +6,8 @@ import * as appActions from 'src/app/actions/app.actions';
 import * as libraryActions from '../actions/library.actions';
 import { BookEntity } from '../reducer/books.reducer';
 
+const apiUrl = 'https://movies-api.7inyd4nc3r.now.sh';
+
 @Injectable()
 export class LibraryEffects {
   constructor(private actions$: Actions, private http: HttpClient) { }
@@ -13,7 +15,7 @@ export class LibraryEffects {
   loadBooks$ = createEffect(() =>
     this.actions$.pipe(
       ofType(appActions.applicationStarted),
-      switchMap(() => this.http.get<GetBooksResponse>('http://localhost:3000/books')
+      switchMap(() => this.http.get<GetBooksResponse>(`${apiUrl}/books`)
         .pipe(
           tap(response => console.log(response)),
           map(response => response.books),
