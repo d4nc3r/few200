@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { BookEntryComponent } from './components/book-entry/book-entry.component';
@@ -14,6 +15,7 @@ import { featureName, reducers } from './reducer';
   declarations: [LibraryComponent, BookEntryComponent, BookListComponent],
   imports: [
     CommonModule,
+    FormsModule,
     StoreModule.forFeature(featureName, reducers),
     EffectsModule.forFeature([LibraryEffects])
   ]
